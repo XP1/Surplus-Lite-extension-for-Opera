@@ -1,10 +1,10 @@
-<!doctype html>
-<html>
-<head>
-</head>
-<body>
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Surplus Lite</title>
+    <base target="_blank"/>
   <style>
-  
     a {
       color: #36C;
       cursor: pointer;
@@ -19,6 +19,8 @@
     #container {
       height: 500px;
       overflow: auto;
+      border-left: 1px solid #DDDFE7;
+      border-bottom: 1px solid #DDDFE7;
     }
     .item {
       padding: 14px 21px 14px 21px;
@@ -51,7 +53,7 @@
     }
     body {
       font: normal 13px arial,sans-serif;
-      width: 440px;
+      width: 100%;
       padding: 0;
       margin: 0;
     }
@@ -80,13 +82,19 @@
       vertical-align: middle;
     }
     #header {
-      padding: 18px 19px 17px 19px;
+      padding: 18px 19px 17px 0px;
       vertical-align: middle;
     }
   </style>
+  </head>
+<body>
   <div id="header">
-    <a href="javascript:updatelastreadtime()" style="float:right">Mark all read</a>
-    <span style="font-size:110%;font-weight:bold">Surplus Lite </span>
+      <div style="float: right;">
+          <a href="javascript:updatelastreadtime()" target="_self">Mark all read</a>
+          &nbsp;&nbsp;&nbsp;
+          <a href="https://plus.google.com/notifications/all/">View all &raquo;</a>
+      </div>
+    <span style="font-size:110%;font-weight:bold">Notifications - Surplus Lite</span>
   </div>
   <div id="container">
     <center>Loading...</center>

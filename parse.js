@@ -1,4 +1,4 @@
-
+﻿
 function parseNotifications(x){
   var verbs = { //
     6: 'added you on Google+',
