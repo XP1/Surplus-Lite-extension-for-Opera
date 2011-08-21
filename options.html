@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title id="title">Surplus Lite</title>
+        <base target="_blank"/>
+        <link rel="stylesheet" href="/css/general.css"/>
+        <link rel="stylesheet" href="/css/options.css"/>
+    </head>
+    <body>
+        <noscript class="centerText">
+        <p>JavaScript must be enabled to save settings.</p>
+        </noscript>
+
+        <div id="wrapper">
+            <header class="centerText">
+                <img src="/images/icons/surplus_128x128.png" alt="Surplus Lite"/>
+                <h1 id="name">Surplus Lite</h1>
+                <h2>Made by <a href="https://github.com/antimatter15/"><span id="author">antimatter15</span></a>.</h2>
+                <h2>Ported by <a href="https://github.com/XP1/"><span id="porter">XP1</span></a>.</h2>
+            </header>
+
+            <section>
+                <p>Lightweight Google+ notifications in Opera.</p>
+                <p>Based on @<a href="https://github.com/antimatter15/">antimatter15</a>'s <a href="https://github.com/antimatter15/surplus-lite/">Google Chrome extension</a>.</p>
+
+                <form id="optionsForm" target="_self">
+                    <fieldset>
+                        <legend>User</legend>
+                        <div class="field">
+                            <label for="userNumber">Number:</label><input type="number" id="userNumber" name="userNumber" value="0" min="0" step="1"/>
+                            <p class="hint">Enter your Google+ user number if you are using the multi-login feature with other Google+ profiles. By default, if you only have one Google+ profile, your user number is "0".</p>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Updater</legend>
+                        <div class="field">
+                            <label>Updater:</label><input type="radio" id="updaterEnable" name="updater" value="true" checked/> <label class="radioboxes" for="updaterEnable">Enable</label> <input type="radio" id="updaterDisable" name="updater" value="false"/> <label class="radioboxes" for="updaterDisable">Disable</label>
+                            <p class="hint">The updater checks for new, unread notifications and updates the toolbar button with the number of notifications.</p>
+                        </div>
+                        <div class="field">
+                            <label>Retry continously:</label><input type="radio" id="retryContinouslyEnable" name="retryContinously" value="true"/> <label class="radioboxes" for="retryContinouslyEnable">Enable</label> <input type="radio" id="retryContinouslyDisable" name="retryContinously" value="false" checked/> <label class="radioboxes" for="retryContinouslyDisable">Disable</label>
+                            <p class="hint">If enabled, the updater will check continously for new, unread notifications even if it exceeds the maximum number of retries. If disabled, the updater will obey and give up after it reaches the maximum number of retries, and the updater will also disable itself.</p>
+                        </div>
+                        <div class="field">
+                            <label for="maximumNumberOfRetries">Maximum number of retries:</label><input type="number" id="maximumNumberOfRetries" name="maximumNumberOfRetries" value="15" min="0" step="1"/>
+                            <p class="hint">The maximum number of retries will apply when retry continously is disabled. After the updater has reached the maximum number of retries consecutively, the updater will disable itself and no longer check for new, unread notifications.</p>
+                        </div>
+                        <div class="field">
+                            <label for="countUpdateRequestInterval">Count update request interval:</label><input type="number" id="countUpdateRequestInterval" name="countUpdateRequestInterval" value="15000" min="1000" step="1"/>
+                            <p class="hint">In milliseconds, the count update request interval is the time between update requests. By default, the interval is 15 seconds.</p>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <p class="centerText">
+                            <input type="submit" id="save" value="Save"/>
+                            <input type="reset" id="reset" value="Reset"/>
+                        </p>
+                    </fieldset>
+                </form>
+            </section>
+
+            <footer class="centerText">
+                <p>Powered by the <a href="http://www.opera.com/">Opera browser</a>.</p>
+            </footer>
+        </div>
+        <script src="/js/general.js"></script>
+        <script src="/js/options.js"></script>
+    </body>
+</html>

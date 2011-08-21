@@ -1,0 +1,123 @@
+﻿@charset "utf-8";
+
+/**
+ * General.
+ */
+noscript
+{
+    max-width: 400px !important; /* Decrease max width to fit in popup. */
+}
+
+/**
+ * Header.
+ */
+header
+{
+    padding: 18px 19px 17px 0;
+    vertical-align: middle;
+}
+
+header #links
+{
+    float: right;
+}
+
+header #name
+{
+    font-weight: 900;
+    font-size: 14px;
+}
+
+/**
+ * Notifications.
+ */
+#notifications
+{
+    overflow: auto;
+    max-height: 509px;
+}
+
+#notifications > a
+{
+    text-decoration: none !important;
+}
+
+#problemSuggestion
+{
+    display: block; /* Wrap text to next line. */
+}
+
+.firstItem
+{
+    border-top: 1px solid #dddfe7; /* Mischka light gray. */
+}
+
+.item
+{
+    background: #eef0f9; /* White lilac. */
+    border-bottom: 1px solid #dddfe7; /* Mischka light gray. */
+    border-left: 1px solid #dddfe7; /* Mischka light gray. */
+    color: #666666; /* Dove dark gray. */
+
+    padding: 14px 21px 14px 21px;
+    min-height: 30px;
+    outline: none;
+    cursor: pointer;
+}
+
+.item a
+{
+    color: #666666; /* Dove dark gray. */
+}
+
+.item.unread
+{
+    background: #ffffff; /* White. */
+    color: #000000; /* Black. */
+}
+
+.item.unread a
+{
+    color: #3366cc; /* Mariner blue. */
+}
+
+.item img
+{
+    width: 35px;
+    height: 35px;
+    float: left;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.icon
+{
+    width: 16px;
+    height: 16px;
+    float: right;
+    margin: 9px 10px 0 5px;
+    vertical-align: middle;
+}
+
+.stream
+{
+    background: url("/images/sprites/notificationTypes.png") no-repeat -83px 0;
+}
+
+.circles
+{
+    background: url("/images/sprites/notificationTypes.png") no-repeat -100px 0;
+}
+
+.chevron
+{
+    background-image: url("/images/sprites/chevrons.png");
+    background-position: -64px 16px;
+
+    width: 7px;
+    height: 13px;
+
+    float: right;
+    margin: 10px 0;
+    vertical-align: middle;
+}

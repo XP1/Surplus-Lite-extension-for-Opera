@@ -3,159 +3,31 @@
     <head>
         <meta charset="utf-8"/>
         <title>Surplus Lite</title>
-    <base target="_blank"/>
-  <style>
-    a {
-      color: #36C;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    #container > a {
-      text-decoration: none !important;
-    }
-    #container {
-      height: 500px;
-      overflow: auto;
-      border-left: 1px solid #DDDFE7;
-      border-bottom: 1px solid #DDDFE7;
-    }
-    .item {
-      padding: 14px 21px 14px 21px;
-      background: #EEF0F9;
-      color: #666;
-      border-top: 1px solid #DDDFE7;
-      outline: none;
-      min-height: 30px;
-      cursor: pointer;
-    }
-    .item a {
-      color: #666;
-    }
-    
-    .item.unread a {
-      color: #36C;
-    }
-    
-    .item.unread {
-      background: #fff;
-      color: #000;
-    }
-    .item img{
-      display: inline-block;
-      float: left;
-      margin-right: 10px;
-      vertical-align: middle;
-      width: 35px;
-      height: 35px;
-    }
-    body {
-      font: normal 13px arial,sans-serif;
-      width: 100%;
-      padding: 0;
-      margin: 0;
-    }
-    .icon {
-      float: right;
-      margin: 9px 10px 0 5px;
-      display: inline-block;
-      height: 16px;
-      vertical-align: middle;
-      width: 16px;
-    }
-    .stream {
-      background: no-repeat url(img/icons.png) -83px 0;
-    }
-    .circles {
-      background: no-repeat url(img/icons.png) -100px 0;
-    }
-    .chevron {
-      background-image: url(img/chevron.png);
-      background-position: -64px 16px;
-      display: inline-block;
-      float: right;
-      margin: 10px 0;
-      width: 7px;
-      height: 13px;
-      vertical-align: middle;
-    }
-    #header {
-      padding: 18px 19px 17px 0px;
-      vertical-align: middle;
-    }
-  </style>
-  </head>
-<body>
-  <div id="header">
-      <div style="float: right;">
-          <a href="javascript:updatelastreadtime()" target="_self">Mark all read</a>
-          &nbsp;&nbsp;&nbsp;
-          <a href="https://plus.google.com/notifications/all/">View all &raquo;</a>
-      </div>
-    <span style="font-size:110%;font-weight:bold">Notifications - Surplus Lite</span>
-  </div>
-  <div id="container">
-    <center>Loading...</center>
-  </div>
-  <script src="parse.js"></script>
-  <script>
-    if(localStorage.slitecache){
-      document.getElementById('container').innerHTML = localStorage.slitecache;
-    }
-    function load_notifications(){
-      var xhr = new XMLHttpRequest();
-      xhr.open('get', 'https://plus.google.com/u/0/_/notifications/getnotificationsdata', true);
-      xhr.onload = function(){
-        var n = parseNotifications(eval(xhr.responseText.substr(5))) //TODO: use something other than EVAL to parse the malformed JSON
-        document.getElementById('container').innerHTML = '';
-        for(var i = 0; i < n.length; i++){
-          var l = document.createElement('a');
-          var div = document.createElement('div');
-          div.className = 'item '+(n[i].unread?'unread':'');
-          var img = document.createElement('img');
-          img.src = n[i].pic;
-          div.appendChild(img);
-          var chevron = document.createElement('div');
-          chevron.className = 'chevron';
-          div.appendChild(chevron);
-          var icon = document.createElement('span');
-          icon.className = 'icon '+(n[i].url?'stream':'circles');
-          div.appendChild(icon);
-          var text = document.createElement('div');
-          text.innerHTML = n[i].html;
-          div.appendChild(text);
-          
-          l.target = '_blank';
-          l.href = n[i].url || 'https://plus.google.com/circles';
-          l.appendChild(div);
-          
-          document.getElementById('container').appendChild(l);
+        <base target="_blank"/>
+        <link rel="stylesheet" href="/css/general.css"/>
+        <link rel="stylesheet" href="/css/popup.css"/>
+    </head>
+    <body>
+        <noscript class="centerText">
+        <p>JavaScript must be enabled to view notifications.</p>
+        </noscript>
 
-        }
-        localStorage.slitecache = document.getElementById('container').innerHTML;
-      }
-      xhr.send();
-    }
-    
-    function updatelastreadtime(){
-      var xhr = new XMLHttpRequest();
-      xhr.open('get', 'https://plus.google.com/notifications/all', true);
-      xhr.onload = function(){
-        var code = xhr.responseText.match(/"https:\/\/www\.google\.com\/csi"\,"([A-Za-z0-9\-_:]+)"\,\,\,/)[1];
-        var xhr2 = new XMLHttpRequest();
-        xhr2.onload = function(){
-          load_notifications()
-        }
-        xhr2.open('post', 'https://plus.google.com/u/0/_/notifications/updatelastreadtime', true);
-        xhr2.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
-        xhr2.send('time='+(1000*new Date)+'&at='+code); //1000*new Date
-      }
-      xhr.send();
-    }
-
-    load_notifications()
-  </script>
-</body>
+        <header>
+            <div id="links">
+                <a id="markAllRead" target="_self">Mark all read</a>
+                &nbsp;&nbsp;&nbsp;
+                <a id="viewAll">View all &raquo;</a>
+            </div>
+            <span id="name">Notifications - Surplus Lite</span>
+        </header>
+        <article id="notifications">
+            <p class="centerText">Loading...</p>
+            <section id="problemSuggestion" class="centerText hide">
+                <p>Please login to Google+ or check your Internet connection.</p>
+                <p>If the problem persists, check the error console and include any errors in your report.</p>
+            </section>
+        </article>
+        <script src="/js/parse.js"></script>
+        <script src="/js/popup.js"></script>
+    </body>
 </html>
