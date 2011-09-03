@@ -9,7 +9,7 @@
     var title = surplusLite.getTitle();
     var notificationsAllUri = surplusLite.getNotificationsAllUri();
 
-    var problemSuggestionTimeoutID = null;
+    var problemSuggestionTimeoutId = null;
 
     var notifications = document.getElementById("notifications");
 
@@ -19,7 +19,7 @@
         if (typeof notificationsHtml === "string")
         {
             notifications.innerHTML = notificationsHtml;
-            window.clearTimeout(problemSuggestionTimeoutID);
+            window.clearTimeout(problemSuggestionTimeoutId);
         }
     };
 
@@ -37,7 +37,7 @@
 
                 var notificationItems = window.parseNotifications(eval(notificationsRequest.responseText.substr(5))); // TODO: use something other than EVAL to parse the malformed JSON.
                 notifications.innerHTML = "";
-                window.clearTimeout(problemSuggestionTimeoutID);
+                window.clearTimeout(problemSuggestionTimeoutId);
 
                 var circlesUri = surplusLite.getCirclesUri();
 
@@ -125,7 +125,7 @@
 
     window.addEventListener("DOMContentLoaded", function ()
     {
-        problemSuggestionTimeoutID = window.setTimeout(function ()
+        problemSuggestionTimeoutId = window.setTimeout(function ()
         {
             var problemSuggestion = document.getElementById("problemSuggestion");
 
