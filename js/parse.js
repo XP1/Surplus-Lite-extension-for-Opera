@@ -19,7 +19,10 @@ function parseNotifications(x){
     25: "commented on a {thing} you're tagged in",
     26: "commented on a {thing} you tagged",
     29: "invited you to a new conversation on Google+ Mobile",
-    33: "invites you to a hangout"
+    33: "invites you to a hangout",
+    11: "sent you Game invitation from Google+ Games",
+    12: "sent you Game invitation from Google+ Games",
+    38: "has accepted your Google+ invitation"
   }
 
 var last = x[1][1]; //or is it 2?!?!?!? 
